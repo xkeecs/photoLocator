@@ -112,7 +112,7 @@
                 android:layout_height="40dip"
                 android:layout_margin="5dip"
                 android:background="@drawable/btn_default_blue"
-                android:text="注册"
+                android:text="Register"
                 android:textColor="#FFFFFFFF" />
 
             <Button
