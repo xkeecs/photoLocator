@@ -15,9 +15,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.photolocator.BaseActivity;
-import com.photolocator.R;
 //import com.immomo.momo.android.view.HandyTextView;
 //import com.photolocator.activity.register.RegisterActivity;
+import com.photolocator.R;
 
 public class WelcomeActivity extends BaseActivity implements OnClickListener
 {
@@ -70,7 +70,7 @@ public class WelcomeActivity extends BaseActivity implements OnClickListener
 		{
 			((ImageView) mMemberBlocks[i].findViewById(R.id.welcome_item_iv_avatar)).setImageBitmap(mApplication
 					.getAvatar(mAvatars[i]));
-			((HandyTextView) mMemberBlocks[i].findViewById(R.id.welcome_item_htv_distance)).setText(mDistances[i]);
+			//((HandyTextView) mMemberBlocks[i].findViewById(R.id.welcome_item_htv_distance)).setText(mDistances[i]);
 		}
 	}
 
@@ -136,20 +136,20 @@ public class WelcomeActivity extends BaseActivity implements OnClickListener
 	@Override
 	public void onClick(View v)
 	{
-		switch (v.getId())
-		{
-
-		case R.id.welcome_btn_register:
-			startActivity(RegisterActivity.class);
-			break;
-
-		case R.id.welcome_btn_login:
-			startActivity(LoginActivity.class);
-			break;
-
-		case R.id.welcome_ibtn_about:
-			startActivity(AboutTabsActivity.class);
-			break;
-		}
+//		switch (v.getId())
+//		{
+//
+//		case R.id.welcome_btn_register:
+//			startActivity(RegisterActivity.class);
+//			break;
+//
+//		case R.id.welcome_btn_login:
+//			startActivity(LoginActivity.class);
+//			break;
+//
+//		case R.id.welcome_ibtn_about:
+//			startActivity(AboutTabsActivity.class);
+//			break;
+//		}
 	}
 }
