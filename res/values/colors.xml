@@ -127,4 +127,5 @@
     <color name="bg_tips_normal">#ffe3ded0</color>
     <color name="bg_tips_press">#ffccc8bc</color>
     <color name="contact_indicator_color">#ff33b5e5</color>
+    <drawable name="transparent">#00000000</drawable>
 </resources>

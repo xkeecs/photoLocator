@@ -49,7 +49,7 @@
                     android:inputType="textPassword"
                     android:singleLine="true" />
 
-                <com.immomo.momo.android.view.HandyTextView
+                <com.photolocator.view.HandyTextView
                     android:id="@+id/login_htv_forgotpassword"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -59,7 +59,7 @@
                     android:textColor="@color/text_color_selector_default"
                     android:textSize="16sp" />
 
-                <com.immomo.momo.android.view.HandyTextView
+                <com.photolocator.view.HandyTextView
                     android:id="@+id/login_htv_selectcountrycode"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

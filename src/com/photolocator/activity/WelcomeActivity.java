@@ -17,6 +17,7 @@ import android.widget.LinearLayout;
 import com.photolocator.BaseActivity;
 import com.photolocator.R;
 import com.photolocator.view.HandyTextView;
+
 //import com.photolocator.activity.register.RegisterActivity;
 
 public class WelcomeActivity extends BaseActivity implements OnClickListener
@@ -136,20 +137,20 @@ public class WelcomeActivity extends BaseActivity implements OnClickListener
 	@Override
 	public void onClick(View v)
 	{
-		// switch (v.getId())
-		// {
+		switch (v.getId())
+		{
 		//
 		// case R.id.welcome_btn_register:
 		// startActivity(RegisterActivity.class);
 		// break;
 		//
-		// case R.id.welcome_btn_login:
-		// startActivity(LoginActivity.class);
-		// break;
+		case R.id.welcome_btn_login:
+			startActivity(LoginActivity.class);
+			break;
 		//
 		// case R.id.welcome_ibtn_about:
 		// startActivity(AboutTabsActivity.class);
 		// break;
-		// }
+		}
 	}
 }
