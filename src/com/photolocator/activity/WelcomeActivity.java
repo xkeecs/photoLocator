@@ -142,10 +142,10 @@ public class WelcomeActivity extends BaseActivity implements OnClickListener
 		//
 		 case R.id.welcome_btn_register:
 		 startActivity(RegisterActivity.class);
-		// break;
+		 break;
 		//
 		case R.id.welcome_btn_login:
-			//startActivity(LoginActivity.class);
+			startActivity(LoginActivity.class);
 			break;
 		//
 		// case R.id.welcome_ibtn_about:
