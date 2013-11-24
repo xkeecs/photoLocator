@@ -69,7 +69,7 @@ public class OtherProfileActivity extends BaseActivity implements OnClickListene
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
-		// setContentView(R.layout.activity_otherprofile);
+		setContentView(R.layout.activity_otherprofile);
 		initViews();
 		initEvents();
 		init();
@@ -78,7 +78,7 @@ public class OtherProfileActivity extends BaseActivity implements OnClickListene
 	@Override
 	protected void initViews()
 	{
-		// mHeaderLayout = (HeaderLayout) findViewById(R.id.otherprofile_header);
+		mHeaderLayout = (HeaderLayout) findViewById(R.id.otherprofile_header);
 		mHeaderLayout.init(HeaderStyle.DEFAULT_TITLE);
 		mLayoutChat = (LinearLayout) findViewById(R.id.otherprofile_bottom_layout_chat);
 		mLayoutUnfollow = (LinearLayout) findViewById(R.id.otherprofile_bottom_layout_unfollow);
@@ -100,12 +100,10 @@ public class OtherProfileActivity extends BaseActivity implements OnClickListene
 		mHtvFeedSignature = (HandyTextView) findViewById(R.id.otherprofile_htv_feed_sign);
 		mHtvFeedDistance = (HandyTextView) findViewById(R.id.otherprofile_htv_feed_distance);
 
-		/*
-		 * mLayoutVip = (RelativeLayout) findViewById(R.id.otherprofile_info_layout_vip); mLayoutSign = (LinearLayout)
-		 * findViewById(R.id.otherprofile_info_layout_sign); mEtvSign = (EmoticonsTextView)
-		 * findViewById(R.id.otherprofile_info_htv_sign); mIvIndustryIcon = (ImageView)
-		 * findViewById(R.id.industry_iv_icon);
-		 */
+		mLayoutVip = (RelativeLayout) findViewById(R.id.otherprofile_info_layout_vip);
+		mLayoutSign = (LinearLayout) findViewById(R.id.otherprofile_info_layout_sign);
+		mEtvSign = (EmoticonsTextView) findViewById(R.id.otherprofile_info_htv_sign);
+		mIvIndustryIcon = (ImageView) findViewById(R.id.industry_iv_icon);
 
 		mLayoutBindInfo = (LinearLayout) findViewById(R.id.otherprofile_bindinfo_layout);
 		mLayoutBindSina = (LinearLayout) findViewById(R.id.otherprofile_bindinfo_layout_sina);
@@ -142,6 +140,7 @@ public class OtherProfileActivity extends BaseActivity implements OnClickListene
 		Intent intent = null;
 		switch (v.getId())
 		{
+
 		/*
 		 * case R.id.otherprofile_bottom_layout_chat: intent = new Intent(OtherProfileActivity.this,
 		 * ChatActivity.class); intent.putExtra("entity_people", mPeople); intent.putExtra("entity_profile", mProfile);
@@ -149,15 +148,15 @@ public class OtherProfileActivity extends BaseActivity implements OnClickListene
 		 */
 
 		case R.id.otherprofile_bottom_layout_unfollow:
-			System.out.println("取消关注");
+			System.out.println("Cancel");
 			break;
 
 		case R.id.otherprofile_bottom_layout_follow:
-			System.out.println("关注");
+			// System.out.println("关注");
 			break;
 
 		case R.id.otherprofile_bottom_layout_report:
-			System.out.println("拉黑/举报");
+			// System.out.println("拉黑/举报");
 			break;
 
 		case R.id.otherprofile_layout_feed:
@@ -191,7 +190,7 @@ public class OtherProfileActivity extends BaseActivity implements OnClickListene
 				protected void onPreExecute()
 				{
 					super.onPreExecute();
-					showLoadingDialog("正在加载,请稍后...");
+					showLoadingDialog("Please wait, is loading...");
 				}
 
 				@Override
@@ -209,7 +208,7 @@ public class OtherProfileActivity extends BaseActivity implements OnClickListene
 					dismissLoadingDialog();
 					if (!result)
 					{
-						showCustomToast("数据加载失败...");
+						showCustomToast("Fail To Load...");
 					}
 					else
 					{
@@ -269,7 +268,7 @@ public class OtherProfileActivity extends BaseActivity implements OnClickListene
 			mLayoutSign.setVisibility(View.VISIBLE);
 			mEtvSign.setText(mPeople.getSign());
 		}
-		mIvIndustryIcon.setImageBitmap(PhotoUtils.getIndustry(OtherProfileActivity.this, "医"));
+		mIvIndustryIcon.setImageBitmap(PhotoUtils.getIndustry(OtherProfileActivity.this, "CS"));
 		if (mPeople.getIsbindWeibo() == 0 && mPeople.getIsbindTxWeibo() == 0 && mPeople.getIsbindRenRen() == 0)
 		{
 			mLayoutBindInfo.setVisibility(View.GONE);

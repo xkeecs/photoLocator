@@ -84,13 +84,14 @@ public class JsonResolveUtils
 						String time = object.getString(NearByPeople.TIME);
 						String sign = object.getString(NearByPeople.SIGN);
 
+						people = new NearByPeople(uid, avatar, isVip, isGroupRole, industry, isbindWeibo,
+								isbindTxWeibo, isbindRenRen, device, isRelation, isMultipic, name, gender, age,
+								distance, time, sign);
+
 						/*
-						 * people = new NearByPeople(uid, avatar, isVip, isGroupRole, industry, isbindWeibo,
-						 * isbindTxWeibo, isbindRenRen, device, isRelation, isMultipic, name, gender, age, distance,
-						 * time, sign);
+						 * people = new NearByPeople("abc", avatar, 1, 1, "cds", 1, 1, 1, 1, 1, 1, "kai", 1, 1, "200",
+						 * "2001", "ok");
 						 */
-						people = new NearByPeople("abc", avatar, 1, 1, "cds", 1, 1, 1, 1, 1, 1, "kai", 1, 1, "200",
-								"2001", "ok");
 						application.mNearByPeoples.add(people);
 					}
 				}

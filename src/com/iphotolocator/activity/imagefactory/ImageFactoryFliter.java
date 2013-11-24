@@ -6,6 +6,7 @@ import java.util.List;
 import android.graphics.Bitmap;
 import android.view.View;
 
+import com.photolocator.R;
 import com.photolocator.utility.PhotoUtils;
 import com.photolocator.view.RotateImageView;
 import com.photolocator.view.RotateImageView.RotateType;
@@ -30,7 +31,7 @@ public class ImageFactoryFliter extends ImageFactory
 	@Override
 	public void initViews()
 	{
-		// mRivImage = (RotateImageView) findViewById(R.id.imagefactory_fliter_riv_image);
+		mRivImage = (RotateImageView) findViewById(R.id.imagefactory_fliter_riv_image);
 	}
 
 	@Override

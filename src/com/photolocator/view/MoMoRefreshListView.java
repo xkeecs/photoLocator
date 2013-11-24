@@ -283,7 +283,7 @@ public class MoMoRefreshListView extends HandyListView
 			mIvLoading.clearAnimation();
 			mIvLoading.startAnimation(mLoadingAnimation);
 			mIvArrow.clearAnimation();
-			mHtvTitle.setText("正在刷新...");
+			mHtvTitle.setText("Loading data...");
 			mHtvTime.setVisibility(View.VISIBLE);
 			if (mIsCancelable)
 			{
@@ -312,9 +312,9 @@ public class MoMoRefreshListView extends HandyListView
 	public void onRefreshComplete()
 	{
 		mState = DONE;
-		SimpleDateFormat format = new SimpleDateFormat("yyyy年MM月dd日  HH:mm");
+		SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd  HH:mm");
 		String date = format.format(new Date());
-		mHtvTime.setText("最后刷新: " + date);
+		mHtvTime.setText("Last Update: " + date);
 		changeHeaderViewByState();
 	}
 

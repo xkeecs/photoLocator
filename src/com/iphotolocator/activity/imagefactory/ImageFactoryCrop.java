@@ -6,6 +6,7 @@ import android.os.Message;
 import android.view.View;
 import android.widget.ProgressBar;
 
+import com.photolocator.R;
 import com.photolocator.utility.PhotoUtils;
 import com.photolocator.view.CropImage;
 import com.photolocator.view.CropImageView;
@@ -29,10 +30,10 @@ public class ImageFactoryCrop extends ImageFactory
 	@Override
 	public void initViews()
 	{
-		/*
-		 * mCivDisplay = (CropImageView) findViewById(R.id.imagefactory_crop_civ_display); mPbBar = (ProgressBar)
-		 * findViewById(R.id.imagefactory_crop_pb_progressbar);
-		 */
+
+		mCivDisplay = (CropImageView) findViewById(R.id.imagefactory_crop_civ_display);
+		mPbBar = (ProgressBar) findViewById(R.id.imagefactory_crop_pb_progressbar);
+
 	}
 
 	@Override

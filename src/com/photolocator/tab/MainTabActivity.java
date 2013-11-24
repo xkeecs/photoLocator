@@ -50,9 +50,11 @@ public class MainTabActivity extends TabActivity
 		 * sessionListTabSpec.setContent(new Intent(MainTabActivity.this, SessionListActivity.class));
 		 * mTabHost.addTab(sessionListTabSpec);
 		 */
+
 		View takephotoView = inflater.inflate(R.layout.common_bottombar_tab_takephoto, null);
-		TabHost.TabSpec takePhotoSpec = mTabHost.newTabSpec(TakePhotoActivity.class.getName()).setIndicator(takephotoView);
-		takePhotoSpec.setContent(new Intent(MainTabActivity.this,TakePhotoActivity.class));
+		TabHost.TabSpec takePhotoSpec = mTabHost.newTabSpec(TakePhotoActivity.class.getName()).setIndicator(
+				takephotoView);
+		takePhotoSpec.setContent(new Intent(MainTabActivity.this, TakePhotoActivity.class));
 		mTabHost.addTab(takePhotoSpec);
 
 		View contactView = inflater.inflate(R.layout.common_bottombar_tab_friend, null);

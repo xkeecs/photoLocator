@@ -105,7 +105,7 @@ public class NearByPeopleFragment extends BaseFragment implements OnItemClickLis
 				protected void onPreExecute()
 				{
 					super.onPreExecute();
-					showLoadingDialog("正在加载,请稍后...");
+					showLoadingDialog("Please wait...");
 				}
 
 				@Override
@@ -121,7 +121,7 @@ public class NearByPeopleFragment extends BaseFragment implements OnItemClickLis
 					dismissLoadingDialog();
 					if (!result)
 					{
-						showCustomToast("数据加载失败...");
+						showCustomToast("Fail to load data...");
 					}
 					else
 					{

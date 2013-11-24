@@ -11,6 +11,7 @@ import com.photolocator.BaseActivity;
 import com.photolocator.R;
 import com.photolocator.utility.PhotoUtils;
 import com.photolocator.view.HeaderLayout;
+import com.photolocator.view.HeaderLayout.HeaderStyle;
 import com.photolocator.view.HeaderLayout.onRightImageButtonClickListener;
 
 public class ImageFactoryActivity extends BaseActivity
@@ -35,7 +36,7 @@ public class ImageFactoryActivity extends BaseActivity
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
-		// setContentView(R.layout.activity_imagefactory);
+		setContentView(R.layout.activity_imagefactory);
 		initViews();
 		initEvents();
 		init();
@@ -44,12 +45,13 @@ public class ImageFactoryActivity extends BaseActivity
 	@Override
 	protected void initViews()
 	{
-		/*
-		 * mHeaderLayout = (HeaderLayout) findViewById(R.id.imagefactory_header);
-		 * mHeaderLayout.init(HeaderStyle.TITLE_RIGHT_IMAGEBUTTON); mVfFlipper = (ViewFlipper)
-		 * findViewById(R.id.imagefactory_vf_viewflipper); mBtnLeft = (Button) findViewById(R.id.imagefactory_btn_left);
-		 * mBtnRight = (Button) findViewById(R.id.imagefactory_btn_right);
-		 */
+
+		mHeaderLayout = (HeaderLayout) findViewById(R.id.imagefactory_header);
+		mHeaderLayout.init(HeaderStyle.TITLE_RIGHT_IMAGEBUTTON);
+		mVfFlipper = (ViewFlipper) findViewById(R.id.imagefactory_vf_viewflipper);
+		mBtnLeft = (Button) findViewById(R.id.imagefactory_btn_left);
+		mBtnRight = (Button) findViewById(R.id.imagefactory_btn_right);
+
 	}
 
 	@Override
@@ -164,10 +166,10 @@ public class ImageFactoryActivity extends BaseActivity
 				mImageFactoryCrop = new ImageFactoryCrop(this, mVfFlipper.getChildAt(0));
 			}
 			mImageFactoryCrop.init(mPath, mScreenWidth, mScreenHeight);
-			mHeaderLayout.setTitleRightImageButton("裁切图片", null, R.drawable.ic_topbar_rotation,
+			mHeaderLayout.setTitleRightImageButton("Tailoring image", null, R.drawable.ic_topbar_rotation,
 					new OnRightImageButtonClickListener());
-			mBtnLeft.setText("取    消");
-			mBtnRight.setText("确    认");
+			mBtnLeft.setText("Cancel");
+			mBtnRight.setText("OK");
 
 			break;
 
@@ -177,10 +179,10 @@ public class ImageFactoryActivity extends BaseActivity
 				mImageFactoryFliter = new ImageFactoryFliter(this, mVfFlipper.getChildAt(1));
 			}
 			mImageFactoryFliter.init(mNewPath);
-			mHeaderLayout.setTitleRightImageButton("图片滤镜", null, R.drawable.ic_topbar_rotation,
+			mHeaderLayout.setTitleRightImageButton("filter", null, R.drawable.ic_topbar_rotation,
 					new OnRightImageButtonClickListener());
-			mBtnLeft.setText("取    消");
-			mBtnRight.setText("完    成");
+			mBtnLeft.setText("Cancel");
+			mBtnRight.setText("Finish");
 			break;
 		}
 	}
