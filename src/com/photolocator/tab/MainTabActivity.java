@@ -32,12 +32,11 @@ public class MainTabActivity extends TabActivity
 	{
 		LayoutInflater inflater = LayoutInflater.from(MainTabActivity.this);
 
-		// View nearbyView = inflater.inflate(R.layout.common_bottombar_tab_nearby, null);
-		/*
-		 * TabHost.TabSpec nearbyTabSpec = mTabHost.newTabSpec(NearByActivity.class.getName()).setIndicator(nearbyView);
-		 * nearbyTabSpec.setContent(new Intent(MainTabActivity.this, NearByActivity.class));
-		 * mTabHost.addTab(nearbyTabSpec);
-		 */
+		View nearbyView = inflater.inflate(R.layout.common_bottombar_tab_nearby, null);
+
+		TabHost.TabSpec nearbyTabSpec = mTabHost.newTabSpec(NearByActivity.class.getName()).setIndicator(nearbyView);
+		nearbyTabSpec.setContent(new Intent(MainTabActivity.this, NearByActivity.class));
+		mTabHost.addTab(nearbyTabSpec);
 
 		View nearbyFeedsView = inflater.inflate(R.layout.common_bottombar_tab_site, null);
 		TabHost.TabSpec nearbyFeedsTabSpec = mTabHost.newTabSpec(NearByFeedsActivity.class.getName()).setIndicator(

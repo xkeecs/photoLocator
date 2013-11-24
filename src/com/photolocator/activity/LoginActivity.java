@@ -81,7 +81,7 @@ public class LoginActivity extends com.photolocator.BaseActivity implements OnCl
 	{
 		mHeaderLayout = (HeaderLayout) findViewById(R.id.login_header);
 		mHeaderLayout.init(HeaderStyle.DEFAULT_TITLE);
-		mHeaderLayout.setDefaultTitle("登录", null);
+		mHeaderLayout.setDefaultTitle("Login", null);
 		mEtAccount = (EditText) findViewById(R.id.login_et_account);
 		mEtPwd = (EditText) findViewById(R.id.login_et_pwd);
 		mHtvForgotPassword = (HandyTextView) findViewById(R.id.login_htv_forgotpassword);
