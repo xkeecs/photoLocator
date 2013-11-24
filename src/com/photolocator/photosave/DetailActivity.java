@@ -1,8 +1,11 @@
 package com.photolocator.photosave;
 
 import android.app.Activity;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -21,6 +24,7 @@ public class DetailActivity extends Activity
 	private ProgressBar pbar;
 	private TextView tvTitle, tvDesc;
 	private ImageView imgView;
+	private Button mapButton;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -32,6 +36,17 @@ public class DetailActivity extends Activity
 		tvTitle = (TextView) findViewById(R.id.tvtitle);
 		tvDesc = (TextView) findViewById(R.id.tvdesc);
 		imgView = (ImageView) findViewById(R.id.imgdesc);
+		mapButton = (Button) findViewById(R.id.button_detail);
+		
+		mapButton.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				startActivity(getPackageManager().getLaunchIntentForPackage("com.google.android.apps.maps"));
+			}
+			
+		});
 
 		Bundle b = getIntent().getExtras();
 
@@ -41,8 +56,10 @@ public class DetailActivity extends Activity
 		tvTitle.setText(title);
 		tvDesc.setText(desc);
 
-		String url = b.getString("url");
-		loadImageFromURL(url);
+		Bitmap bitmap = (Bitmap)b.get("bitmap");
+		imgView.setImageBitmap(bitmap);
+		pbar.setVisibility(View.INVISIBLE);
+		//loadImageFromURL(url);
 
 	}
 

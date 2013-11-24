@@ -5,8 +5,10 @@ import java.util.List;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -14,10 +16,12 @@ import android.widget.ListView;
 
 import com.photolocator.R;
 
-public class MainActivity extends Activity implements OnItemClickListener
+public class MainActivity extends Activity implements OnItemClickListener,SetbackList
 {
 	private static final String rssFeed = "https://www.dropbox.com/s/t4o5wo6gdcnhgj8/imagelistview.xml?dl=1";
 
+	
+	ProgressDialog pDialog;
 	List<Item> arrayOfList;
 	ListView listView;
 
@@ -46,7 +50,7 @@ public class MainActivity extends Activity implements OnItemClickListener
 	class MyTask extends AsyncTask<String, Void, Void>
 	{
 
-		ProgressDialog pDialog;
+		
 
 		@Override
 		protected void onPreExecute()
@@ -62,7 +66,8 @@ public class MainActivity extends Activity implements OnItemClickListener
 		@Override
 		protected Void doInBackground(String... params)
 		{
-			arrayOfList = new NamesParser().getData(params[0]);
+			SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
+			new NamesParser(MainActivity.this).getData(MainActivity.this,prefs.getString("username", null));
 			return null;
 		}
 
@@ -70,31 +75,6 @@ public class MainActivity extends Activity implements OnItemClickListener
 		protected void onPostExecute(Void result)
 		{
 			super.onPostExecute(result);
-
-			if (null != pDialog && pDialog.isShowing())
-			{
-				pDialog.dismiss();
-			}
-
-			if (null == arrayOfList || arrayOfList.size() == 0)
-			{
-				showToast("No data found from web!!!");
-				MainActivity.this.finish();
-			}
-			else
-			{
-
-				// check data...
-				/*
-				 * for (int i = 0; i < arrayOfList.size(); i++) { Item item = arrayOfList.get(i);
-				 * System.out.println(item.getId()); System.out.println(item.getTitle());
-				 * System.out.println(item.getDesc()); System.out.println(item.getPubdate());
-				 * System.out.println(item.getLink()); }
-				 */
-
-				setAdapterToListview();
-
-			}
 
 		}
 	}
@@ -104,7 +84,7 @@ public class MainActivity extends Activity implements OnItemClickListener
 	{
 		Item item = arrayOfList.get(position);
 		Intent intent = new Intent(MainActivity.this, DetailActivity.class);
-		intent.putExtra("url", item.getLink());
+		intent.putExtra("bitmap", item.getBitmap());
 		intent.putExtra("title", item.getTitle());
 		intent.putExtra("desc", item.getDesc());
 		startActivity(intent);
@@ -119,5 +99,40 @@ public class MainActivity extends Activity implements OnItemClickListener
 	public void showToast(String msg)
 	{
 
+	}
+
+	@Override
+	public void setbackList(List<Item> l) {
+		// TODO Auto-generated method stub
+		arrayOfList=l;
+		if (null != pDialog && pDialog.isShowing())
+		{
+			pDialog.dismiss();
+		}
+
+		if (null == arrayOfList || arrayOfList.size() == 0)
+		{
+			showToast("No data found from web!!!");
+			MainActivity.this.finish();
+		}
+		else
+		{
+
+			// check data...
+			/*
+			 * for (int i = 0; i < arrayOfList.size(); i++) { Item item = arrayOfList.get(i);
+			 * System.out.println(item.getId()); System.out.println(item.getTitle());
+			 * System.out.println(item.getDesc()); System.out.println(item.getPubdate());
+			 * System.out.println(item.getLink()); }
+			 */
+
+			runOnUiThread(new Runnable() {
+			     public void run() {
+			    	 setAdapterToListview();
+			    }
+			});
+			
+
+		}
 	}
 }

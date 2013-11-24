@@ -12,6 +12,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.location.Location;
@@ -117,8 +118,9 @@ public class TakePhotoActivity extends TabItemActivity implements OnClickListene
 	
 	private void handleData(Intent data){
 		Bundle extras = data.getExtras();
-		mImageBitmap = (Bitmap) extras.get("data");
-		mImage.setImageBitmap(mImageBitmap);
+		Bitmap b=(Bitmap) extras.get("data");
+		mImageBitmap = Bitmap.createScaledBitmap(b, b.getWidth()/2, b.getHeight()/2, false);
+		mImage.setImageBitmap(b);
 	}
 	
 	private void send(){

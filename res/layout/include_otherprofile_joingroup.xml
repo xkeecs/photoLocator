@@ -16,7 +16,7 @@
         android:paddingLeft="10dip"
         android:paddingRight="10dip"
         android:paddingTop="10dip"
-        android:text="加入的群组"
+        android:text=""
         android:textColor="@color/blue"
         android:textSize="14sp" />
 
