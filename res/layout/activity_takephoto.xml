@@ -9,26 +9,38 @@
         android:id="@+id/button_takephoto"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="100dp"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:layout_alignParentLeft="true"
-        android:text="@string/button_takephoto" />
+        android:text="@string/button_takephoto" />          />
+
+        <Button
+            android:id="@+id/button_send"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="100dp"
+        android:layout_height="70dp"
+            android:layout_alignParentRight="true"
+            android:text="@string/button_send" />
 
         <ImageView
             android:id="@+id/imageView_takephoto"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
-            android:layout_below="@+id/button_takephoto"
-            android:src="@android:drawable/picture_frame" />
+            android:layout_centerVertical="true"
+            android:src="@drawable/dslr" />
 
-        <Button
-            android:id="@+id/button_send"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/editText1"
+            android:layout_width="280dp"
             android:layout_height="wrap_content"
-            android:layout_above="@id/imageView_takephoto"
-            android:layout_alignParentRight="true"
-            android:text="@string/button_send" />
+            android:layout_below="@+id/imageView_takephoto"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="22dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="You can also take good photos!" >
+
+            <requestFocus />
+        </EditText>
 
 </RelativeLayout>
