@@ -13,6 +13,7 @@ import android.widget.EditText;
 import com.photolocator.R;
 import com.photolocator.dialog.SimpleListDialog;
 import com.photolocator.dialog.SimpleListDialog.onSimpleListItemClickListener;
+import com.photolocator.tab.MainTabActivity;
 import com.photolocator.view.HandyTextView;
 import com.photolocator.view.HeaderLayout;
 import com.photolocator.view.HeaderLayout.HeaderStyle;
@@ -82,20 +83,6 @@ public class LoginActivity extends com.photolocator.BaseActivity implements OnCl
 	{
 		switch (v.getId())
 		{
-		/*
-		 * case R.id.login_htv_forgotpassword: startActivity(FindPwdTabsActivity.class); break;
-		 */
-
-		/*case R.id.login_htv_selectcountrycode:
-			mCountryCodes = getResources().getStringArray(R.array.country_codes);
-			mSimpleListDialog = new SimpleListDialog(LoginActivity.this);
-			mSimpleListDialog.setTitle("选择国家区号");
-			mSimpleListDialog.setTitleLineVisibility(View.GONE);
-			mSimpleListDialog.setAdapter(new SimpleListDialogAdapter(LoginActivity.this, mCountryCodes));
-			mSimpleListDialog.setOnSimpleListItemClickListener(LoginActivity.this);
-			mSimpleListDialog.show();*/
-			//break;
-
 		case R.id.login_btn_back:
 			finish();
 			break;
@@ -264,7 +251,7 @@ public class LoginActivity extends com.photolocator.BaseActivity implements OnCl
 				}
 				else
 				{
-					showCustomToast("账号或密码错误,请检查是否输入正确");
+					showCustomToast("Username/Password,please check it");
 				}
 			}
 		});
