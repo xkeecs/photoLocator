@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="8"
+        android:minSdkVersion="14"
         android:targetSdkVersion="18" />
 
     <application
@@ -19,7 +19,6 @@
             android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -29,6 +28,56 @@
         </activity>
         <activity
             android:name=".activity.RegisterActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+          <activity
+            android:name=".activity.FeedProfileActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+              <activity
+            android:name=".activity.ImageBrowserActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+              <activity
+            android:name=".activity.OtherFeedListActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+              <activity
+            android:name=".activity.OtherProfileActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        
+          <activity
+            android:name=".tab.MainTabActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+         <activity
+            android:name=".tab.NearByPeopleFragment"
+            android:screenOrientation="portrait" >
+        </activity>
+          <activity
+            android:name=".tab.ContactTabsActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+           <activity
+            android:name=".tab.NearByFeedsActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+            <activity
+            android:name=".tab.NearByActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+           <activity
+            android:name=".tab.TabItemActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+         <activity
+            android:name=".tab.UserSettingByActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        
+           <activity
+            android:name=".activity.imagefactory.ImageFactoryActivity"
             android:screenOrientation="portrait" >
         </activity>
     </application>
