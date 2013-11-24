@@ -69,7 +69,7 @@ public class OtherProfileActivity extends BaseActivity implements OnClickListene
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_otherprofile);
+		// setContentView(R.layout.activity_otherprofile);
 		initViews();
 		initEvents();
 		init();
@@ -78,7 +78,7 @@ public class OtherProfileActivity extends BaseActivity implements OnClickListene
 	@Override
 	protected void initViews()
 	{
-		mHeaderLayout = (HeaderLayout) findViewById(R.id.otherprofile_header);
+		// mHeaderLayout = (HeaderLayout) findViewById(R.id.otherprofile_header);
 		mHeaderLayout.init(HeaderStyle.DEFAULT_TITLE);
 		mLayoutChat = (LinearLayout) findViewById(R.id.otherprofile_bottom_layout_chat);
 		mLayoutUnfollow = (LinearLayout) findViewById(R.id.otherprofile_bottom_layout_unfollow);
@@ -100,10 +100,12 @@ public class OtherProfileActivity extends BaseActivity implements OnClickListene
 		mHtvFeedSignature = (HandyTextView) findViewById(R.id.otherprofile_htv_feed_sign);
 		mHtvFeedDistance = (HandyTextView) findViewById(R.id.otherprofile_htv_feed_distance);
 
-		mLayoutVip = (RelativeLayout) findViewById(R.id.otherprofile_info_layout_vip);
-		mLayoutSign = (LinearLayout) findViewById(R.id.otherprofile_info_layout_sign);
-		mEtvSign = (EmoticonsTextView) findViewById(R.id.otherprofile_info_htv_sign);
-		mIvIndustryIcon = (ImageView) findViewById(R.id.industry_iv_icon);
+		/*
+		 * mLayoutVip = (RelativeLayout) findViewById(R.id.otherprofile_info_layout_vip); mLayoutSign = (LinearLayout)
+		 * findViewById(R.id.otherprofile_info_layout_sign); mEtvSign = (EmoticonsTextView)
+		 * findViewById(R.id.otherprofile_info_htv_sign); mIvIndustryIcon = (ImageView)
+		 * findViewById(R.id.industry_iv_icon);
+		 */
 
 		mLayoutBindInfo = (LinearLayout) findViewById(R.id.otherprofile_bindinfo_layout);
 		mLayoutBindSina = (LinearLayout) findViewById(R.id.otherprofile_bindinfo_layout_sina);

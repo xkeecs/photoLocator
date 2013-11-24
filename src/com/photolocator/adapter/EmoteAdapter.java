@@ -9,7 +9,6 @@ import android.widget.ImageView;
 
 import com.photolocator.BaseApplication;
 import com.photolocator.BaseArrayListAdapter;
-import com.photolocator.R;
 
 public class EmoteAdapter extends BaseArrayListAdapter
 {
@@ -25,9 +24,9 @@ public class EmoteAdapter extends BaseArrayListAdapter
 		ViewHolder holder = null;
 		if (convertView == null)
 		{
-			convertView = mInflater.inflate(R.layout.listitem_emote, null);
+			// convertView = mInflater.inflate(R.layout.listitem_emote, null);
 			holder = new ViewHolder();
-			holder.mIvImage = (ImageView) convertView.findViewById(R.id.emote_item_iv_image);
+			// holder.mIvImage = (ImageView) convertView.findViewById(R.id.emote_item_iv_image);
 			convertView.setTag(holder);
 		}
 		else

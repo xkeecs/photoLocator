@@ -47,10 +47,12 @@ public abstract class BaseFragment extends Fragment
 		mApplication = application;
 		mActivity = activity;
 		mContext = context;
-		mLoadingDialog = new FlippingLoadingDialog(context, "请求提交中");
+		mLoadingDialog = new FlippingLoadingDialog(context, "Loading data");
+
 		/**
 		 * 获取屏幕宽度、高度、密度
 		 */
+
 		DisplayMetrics metric = new DisplayMetrics();
 		activity.getWindowManager().getDefaultDisplay().getMetrics(metric);
 		mScreenWidth = metric.widthPixels;

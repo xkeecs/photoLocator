@@ -33,7 +33,7 @@
                 android:textColor="@color/dropbar_text_color"
                 android:textSize="16sp" />
 
-            <com..view.HandyTextView
+            <com.photolocator.view.HandyTextView
                 android:id="@+id/refresh_header_htv_time"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"

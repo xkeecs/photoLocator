@@ -62,18 +62,20 @@ public class OtherFeedListAdapter extends BaseObjectListAdapter implements onSim
 		ViewHolder holder = null;
 		if (convertView == null)
 		{
-			convertView = mInflater.inflate(R.layout.listitem_feed, null);
+			// convertView = mInflater.inflate(R.layout.listitem_feed, null);
 			holder = new ViewHolder();
-			holder.root = (RelativeLayout) convertView.findViewById(R.id.feed_item_layout_root);
-			holder.avatar = (ImageView) convertView.findViewById(R.id.feed_item_iv_avatar);
-			holder.time = (HandyTextView) convertView.findViewById(R.id.feed_item_htv_time);
-			holder.name = (HandyTextView) convertView.findViewById(R.id.feed_item_htv_name);
-			holder.content = (EmoticonsTextView) convertView.findViewById(R.id.feed_item_etv_content);
-			holder.contentImage = (ImageView) convertView.findViewById(R.id.feed_item_iv_content);
-			holder.more = (ImageButton) convertView.findViewById(R.id.feed_item_ib_more);
-			holder.comment = (LinearLayout) convertView.findViewById(R.id.feed_item_layout_comment);
-			holder.commentCount = (HandyTextView) convertView.findViewById(R.id.feed_item_htv_commentcount);
-			holder.site = (HandyTextView) convertView.findViewById(R.id.feed_item_htv_site);
+			/*
+			 * holder.root = (RelativeLayout) convertView.findViewById(R.id.feed_item_layout_root); holder.avatar =
+			 * (ImageView) convertView.findViewById(R.id.feed_item_iv_avatar); holder.time = (HandyTextView)
+			 * convertView.findViewById(R.id.feed_item_htv_time); holder.name = (HandyTextView)
+			 * convertView.findViewById(R.id.feed_item_htv_name); holder.content = (EmoticonsTextView)
+			 * convertView.findViewById(R.id.feed_item_etv_content); holder.contentImage = (ImageView)
+			 * convertView.findViewById(R.id.feed_item_iv_content); holder.more = (ImageButton)
+			 * convertView.findViewById(R.id.feed_item_ib_more); holder.comment = (LinearLayout)
+			 * convertView.findViewById(R.id.feed_item_layout_comment); holder.commentCount = (HandyTextView)
+			 * convertView.findViewById(R.id.feed_item_htv_commentcount); holder.site = (HandyTextView)
+			 * convertView.findViewById(R.id.feed_item_htv_site);
+			 */
 			convertView.setTag(holder);
 		}
 		else

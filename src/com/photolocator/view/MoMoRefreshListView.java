@@ -7,7 +7,6 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.View.MeasureSpec;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -99,10 +98,10 @@ public class MoMoRefreshListView extends HandyListView
 		mHeader.setPadding(0, -1 * mHeaderHeight, 0, 0);
 		mHeader.invalidate();
 
-		mHtvTitle.setText("下拉刷新");
-		SimpleDateFormat format = new SimpleDateFormat("yyyy年MM月dd日  HH:mm");
+		mHtvTitle.setText("Drag to update");
+		SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd  HH:mm");
 		String date = format.format(new Date());
-		mHtvTime.setText("最后刷新: " + date);
+		mHtvTime.setText("Last update : " + date);
 
 		mPullAnimation = new android.view.animation.RotateAnimation(0, -180, RotateAnimation.RELATIVE_TO_SELF, 0.5f,
 				RotateAnimation.RELATIVE_TO_SELF, 0.5f);
@@ -254,7 +253,7 @@ public class MoMoRefreshListView extends HandyListView
 			mIvArrow.clearAnimation();
 			mIvArrow.startAnimation(mPullAnimation);
 			mIvLoading.clearAnimation();
-			mHtvTitle.setText("松开刷新");
+			mHtvTitle.setText("release to update");
 			break;
 		case PULL_TO_REFRESH:
 			mIvArrow.setVisibility(View.VISIBLE);
@@ -269,11 +268,11 @@ public class MoMoRefreshListView extends HandyListView
 				mIsBack = false;
 				mIvArrow.clearAnimation();
 				mIvArrow.startAnimation(mReverseAnimation);
-				mHtvTitle.setText("下拉刷新");
+				mHtvTitle.setText("drag to update");
 			}
 			else
 			{
-				mHtvTitle.setText("下拉刷新");
+				mHtvTitle.setText("drag to update");
 			}
 			break;
 
@@ -303,7 +302,7 @@ public class MoMoRefreshListView extends HandyListView
 			mIvArrow.clearAnimation();
 			mIvLoading.clearAnimation();
 			mIvArrow.setImageResource(R.drawable.ic_common_droparrow);
-			mHtvTitle.setText("下拉刷新");
+			mHtvTitle.setText("drag to update");
 			mHtvTime.setVisibility(View.VISIBLE);
 			mIvCancel.setVisibility(View.GONE);
 			break;

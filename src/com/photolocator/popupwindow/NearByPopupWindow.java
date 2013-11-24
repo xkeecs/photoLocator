@@ -1,10 +1,8 @@
 package com.photolocator.popupwindow;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RadioGroup;
@@ -32,9 +30,10 @@ public class NearByPopupWindow extends BasePopupWindow
 
 	public NearByPopupWindow(Context context)
 	{
-		super(LayoutInflater.from(context).inflate(R.layout.include_dialog_nearby_filter, null),
-				LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
-		setAnimationStyle(R.style.Popup_Animation_PushDownUp);
+		/*
+		 * super(LayoutInflater.from(context).inflate(R.layout.include_dialog_nearby_filter, null),
+		 * LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT); setAnimationStyle(R.style.Popup_Animation_PushDownUp);
+		 */
 	}
 
 	@Override

@@ -11,7 +11,6 @@ import com.photolocator.BaseActivity;
 import com.photolocator.R;
 import com.photolocator.utility.PhotoUtils;
 import com.photolocator.view.HeaderLayout;
-import com.photolocator.view.HeaderLayout.HeaderStyle;
 import com.photolocator.view.HeaderLayout.onRightImageButtonClickListener;
 
 public class ImageFactoryActivity extends BaseActivity
@@ -36,7 +35,7 @@ public class ImageFactoryActivity extends BaseActivity
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_imagefactory);
+		// setContentView(R.layout.activity_imagefactory);
 		initViews();
 		initEvents();
 		init();
@@ -45,11 +44,12 @@ public class ImageFactoryActivity extends BaseActivity
 	@Override
 	protected void initViews()
 	{
-		mHeaderLayout = (HeaderLayout) findViewById(R.id.imagefactory_header);
-		mHeaderLayout.init(HeaderStyle.TITLE_RIGHT_IMAGEBUTTON);
-		mVfFlipper = (ViewFlipper) findViewById(R.id.imagefactory_vf_viewflipper);
-		mBtnLeft = (Button) findViewById(R.id.imagefactory_btn_left);
-		mBtnRight = (Button) findViewById(R.id.imagefactory_btn_right);
+		/*
+		 * mHeaderLayout = (HeaderLayout) findViewById(R.id.imagefactory_header);
+		 * mHeaderLayout.init(HeaderStyle.TITLE_RIGHT_IMAGEBUTTON); mVfFlipper = (ViewFlipper)
+		 * findViewById(R.id.imagefactory_vf_viewflipper); mBtnLeft = (Button) findViewById(R.id.imagefactory_btn_left);
+		 * mBtnRight = (Button) findViewById(R.id.imagefactory_btn_right);
+		 */
 	}
 
 	@Override
