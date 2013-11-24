@@ -85,51 +85,24 @@ public class NewsRowAdapter extends ArrayAdapter<Item>
 		}
 		if (holder.imgView != null)
 		{
-			if (null != objBean.getLink() && objBean.getLink().trim().length() > 0)
+			if (null != objBean.getBitmap())
 			{
-				final ProgressBar pbar = holder.pbar;
-
-				imageLoader.init(ImageLoaderConfiguration.createDefault(activity));
-				imageLoader.displayImage(objBean.getLink(), holder.imgView, options, new ImageLoadingListener()
-				{
-					@Override
-					public void onLoadingComplete()
-					{
-						pbar.setVisibility(View.INVISIBLE);
-
-					}
-
-					@Override
-					public void onLoadingFailed()
-					{
-						pbar.setVisibility(View.INVISIBLE);
-					}
-
-					@Override
-					public void onLoadingStarted()
-					{
-						pbar.setVisibility(View.VISIBLE);
-
-					}
-				});
-
+				holder.imgView.setImageBitmap(objBean.getBitmap());
 			}
 			else
 			{
 				holder.imgView.setImageResource(R.drawable.ic_launcher);
 			}
 		}
-
+		holder.pbar.setVisibility(View.INVISIBLE);
 		return view;
 	}
 
 	public class ViewHolder
 	{
-
 		public TextView tvTitle, tvDesc, tvDate;
 		private ImageView imgView;
 		private ProgressBar pbar;
-
 	}
 
 }

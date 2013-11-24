@@ -1,6 +1,8 @@
 package com.photolocator.cassandra;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -14,6 +16,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.location.Location;
+import android.util.Base64;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -154,11 +157,12 @@ public class CassandraFunction {
 			json.put(USERNAME, username);
 			json.put(PHOTONAME, photoName);
 			json.put(CELLPHONETYPE, cellphoneType);
-			ByteArrayOutputStream stream = new ByteArrayOutputStream();
-			bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
-			byte[] byteArray = stream.toByteArray();
-			String s=new String(byteArray,"UTF8");
-			json.put(PHOTO, s);
+			
+			ByteArrayOutputStream baos=new  ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.PNG,100, baos);
+            byte [] b=baos.toByteArray();
+            String temp=Base64.encodeToString(b, Base64.DEFAULT);
+			json.put(PHOTO, temp);
 
 			json.put(LOCATION, locationName);
 			if(location!=null){
@@ -227,12 +231,74 @@ public class CassandraFunction {
 			ArrayList<CassandraDataUnit> cdus = new ArrayList<CassandraDataUnit>();
 			try {
 				JSONArray jsonarray;
+				JSONObject jsonobj;
 				if (responseBody != null) {
-					jsonarray = new JSONArray(new String(responseBody));
-					// System.out.println(json.toString());
-					for (int i = 0; i < jsonarray.length(); i++) {
+					try{
+						jsonarray = new JSONArray(new String(responseBody));
+						for (int i = 0; i < jsonarray.length(); i++) {
+							CassandraDataUnit cdu = new CassandraDataUnit();
+							JSONObject json = jsonarray.getJSONObject(i);
+							try {
+								if (json.getString(USERNAME) != null) {
+									cdu.setUserName(json.getString(USERNAME));
+								}
+							} catch (JSONException je) {
+								je.printStackTrace();
+							}
+							try {
+								if (json.getString(PHOTONAME) != null) {
+									cdu.setPhotoName(json.getString(PHOTONAME));
+								}
+							} catch (JSONException je) {
+								je.printStackTrace();
+							}
+							try {
+								if (json.getString(PHOTO) != null) {
+									String photoString = json.getString(PHOTO);
+									byte [] encodeByte=Base64.decode(photoString,Base64.DEFAULT);
+								    Bitmap bitmap=BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
+									cdu.setBitmap(bitmap);
+								}
+							} catch (JSONException je) {
+								je.printStackTrace();
+							}
+							try {
+								if (json.getString(LOCATION) != null) {
+									cdu.setLocationName(json
+											.getString(LOCATION));
+								}
+							} catch (JSONException je) {
+								je.printStackTrace();
+							}
+							try {
+								if (json.getString(CELLPHONETYPE) != null) {
+									cdu.setCellphoneType(json.getString(CELLPHONETYPE));
+								}
+							} catch (JSONException je) {
+								je.printStackTrace();
+							}
+							try {
+								Location location = new Location(
+										"Photo Locator");
+								location.setAltitude(json.getDouble(ALTITUDE));
+								location.setLatitude(json.getDouble(LATITUDE));
+								location.setLongitude(json.getDouble(LONGITUDE));
+								cdu.setLocation(location);
+							} catch (JSONException je) {
+								je.printStackTrace();
+							}
+							try {
+								cdu.setTime(new Date(json.getLong(TIME)));
+							} catch (JSONException je) {
+								je.printStackTrace();
+							}
+							cdus.add(cdu);
+						}
+					}
+					catch(Exception e){
+						jsonobj=new JSONObject(new String(responseBody));
 						CassandraDataUnit cdu = new CassandraDataUnit();
-						JSONObject json = jsonarray.getJSONObject(i);
+						JSONObject json = jsonobj;
 						try {
 							if (json.getString(USERNAME) != null) {
 								cdu.setUserName(json.getString(USERNAME));
@@ -250,10 +316,8 @@ public class CassandraFunction {
 						try {
 							if (json.getString(PHOTO) != null) {
 								String photoString = json.getString(PHOTO);
-								byte[] photoByte = photoString.getBytes();
-								Bitmap bitmap = BitmapFactory
-										.decodeByteArray(photoByte, 0,
-												photoByte.length);
+								byte [] encodeByte=Base64.decode(photoString,Base64.DEFAULT);
+							    Bitmap bitmap=BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
 								cdu.setBitmap(bitmap);
 							}
 						} catch (JSONException je) {
@@ -291,6 +355,7 @@ public class CassandraFunction {
 						}
 						cdus.add(cdu);
 					}
+					
 					ccb.dataReaded(cdus);
 				} else
 					ccb.dataReaded(null);

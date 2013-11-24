@@ -1,11 +1,23 @@
 package com.photolocator.photosave;
 
+import android.graphics.Bitmap;
+
 public class Item {
 	private String id;
 	private String title;
 	private String desc;
 	private String pubdate;
 	private String link;
+	private Bitmap bitmap;
+	
+	public Item(){
+		id=null;
+		title=null;
+		desc=null;
+		pubdate=null;
+		link=null;
+		bitmap=null;
+	}
 
 	public String getId() {
 		return id;
@@ -45,6 +57,20 @@ public class Item {
 
 	public void setLink(String link) {
 		this.link = link;
+	}
+
+	/**
+	 * @return the bitmap
+	 */
+	public Bitmap getBitmap() {
+		return bitmap;
+	}
+
+	/**
+	 * @param bitmap the bitmap to set
+	 */
+	public void setBitmap(Bitmap bitmap) {
+		this.bitmap = bitmap;
 	}
 
 }
