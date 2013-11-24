@@ -8,6 +8,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.PopupWindow.OnDismissListener;
 
+import com.photolocator.BasePopupWindow.onSubmitClickListener;
 import com.photolocator.R;
 import com.photolocator.popupwindow.NearByPopupWindow;
 import com.photolocator.view.HeaderLayout;
@@ -15,7 +16,6 @@ import com.photolocator.view.HeaderLayout.HeaderStyle;
 import com.photolocator.view.HeaderLayout.SearchState;
 import com.photolocator.view.HeaderLayout.onMiddleImageButtonClickListener;
 import com.photolocator.view.HeaderLayout.onSearchListener;
-import com.photolocator.view.HeaderSpinner;
 import com.photolocator.view.HeaderSpinner.onSpinnerClickListener;
 import com.photolocator.view.SwitcherButton.SwitcherButtonState;
 import com.photolocator.view.SwitcherButton.onSwitcherButtonClickListener;
@@ -24,10 +24,8 @@ public class NearByActivity extends TabItemActivity
 {
 
 	private HeaderLayout mHeaderLayout;
-	private HeaderSpinner mHeaderSpinner;
-	/*
-	 * private NearByPeopleFragment mPeopleFragment; private NearByGroupFragment mGroupFragment;
-	 */
+	private HeaderLayout mHeaderSpinner;
+	private NearByPeopleFragment mPeopleFragment;
 
 	private NearByPopupWindow mPopupWindow;
 
@@ -47,9 +45,7 @@ public class NearByActivity extends TabItemActivity
 	{
 		mHeaderLayout = (HeaderLayout) findViewById(R.id.nearby_header);
 		mHeaderLayout.initSearch(new OnSearchClickListener());
-		mHeaderSpinner = mHeaderLayout.setTitleNearBy("附近", new OnSpinnerClickListener(), "附近群组",
-				R.drawable.ic_topbar_search, new OnMiddleImageButtonClickListener(), "个人", "群组",
-				new OnSwitcherButtonClickListener());
+
 		mHeaderLayout.init(HeaderStyle.TITLE_NEARBY_PEOPLE);
 	}
 
@@ -63,7 +59,6 @@ public class NearByActivity extends TabItemActivity
 	protected void init()
 	{
 		mPeopleFragment = new NearByPeopleFragment(mApplication, this, this);
-		mGroupFragment = new NearByGroupFragment(mApplication, this, this);
 		FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 		ft.replace(R.id.nearby_layout_content, mPeopleFragment).commit();
 	}
@@ -86,7 +81,7 @@ public class NearByActivity extends TabItemActivity
 			@Override
 			public void onDismiss()
 			{
-				mHeaderSpinner.initSpinnerState(false);
+				// mHeaderSpinner.initSpinnerState(false);
 			}
 		});
 	}
@@ -117,7 +112,7 @@ public class NearByActivity extends TabItemActivity
 			String s = et.getText().toString().trim();
 			if (TextUtils.isEmpty(s))
 			{
-				showCustomToast("请输入搜索关键字");
+				showCustomToast("Search");
 				et.requestFocus();
 			}
 			else
@@ -153,12 +148,11 @@ public class NearByActivity extends TabItemActivity
 					{
 						super.onPostExecute(result);
 						mHeaderLayout.changeSearchState(SearchState.INPUT);
-						showCustomToast("未找到搜索的群");
+						showCustomToast("Couldn't find");
 					}
 				});
 			}
 		}
-
 	}
 
 	public class OnMiddleImageButtonClickListener implements onMiddleImageButtonClickListener
@@ -188,7 +182,7 @@ public class NearByActivity extends TabItemActivity
 
 			case RIGHT:
 				mHeaderLayout.init(HeaderStyle.TITLE_NEARBY_GROUP);
-				ft.replace(R.id.nearby_layout_content, mGroupFragment).commit();
+				// ft.replace(R.id.nearby_layout_content, mGroupFragment).commit();
 				break;
 			}
 		}

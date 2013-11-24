@@ -15,6 +15,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
 
+import com.photolocator.entity.NearByPeople;
+
 /*import com.baidu.location.BDLocation;
  import com.baidu.location.BDLocationListener;
  import com.baidu.location.LocationClient;
@@ -33,10 +35,8 @@ public class BaseApplication extends Application
 	public Map<String, SoftReference<Bitmap>> mPhotoThumbnailCache = new HashMap<String, SoftReference<Bitmap>>();
 	public Map<String, SoftReference<Bitmap>> mStatusPhotoCache = new HashMap<String, SoftReference<Bitmap>>();
 
-	/*
-	 * public List<NearByPeople> mNearByPeoples = new ArrayList<NearByPeople>(); public List<NearByGroup> mNearByGroups
-	 * = new ArrayList<NearByGroup>();
-	 */
+	public List<NearByPeople> mNearByPeoples = new ArrayList<NearByPeople>();
+	// public List<NearByGroup> mNearByGroups = new ArrayList<NearByGroup>();
 
 	public static List<String> mEmoticons = new ArrayList<String>();
 	public static Map<String, Integer> mEmoticonsId = new HashMap<String, Integer>();
