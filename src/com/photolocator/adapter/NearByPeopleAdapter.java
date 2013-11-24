@@ -30,10 +30,12 @@ public class NearByPeopleAdapter extends BaseObjectListAdapter
 		ViewHolder holder = null;
 		if (convertView == null)
 		{
+
 			convertView = mInflater.inflate(R.layout.listitem_user, null);
 			holder = new ViewHolder();
 
 			holder.mIvAvatar = (ImageView) convertView.findViewById(R.id.user_item_iv_avatar);
+
 			holder.mIvVip = (ImageView) convertView.findViewById(R.id.user_item_iv_icon_vip);
 			holder.mIvGroupRole = (ImageView) convertView.findViewById(R.id.user_item_iv_icon_group_role);
 			holder.mIvIndustry = (ImageView) convertView.findViewById(R.id.user_item_iv_icon_industry);
@@ -51,6 +53,7 @@ public class NearByPeopleAdapter extends BaseObjectListAdapter
 			holder.mHtvDistance = (HandyTextView) convertView.findViewById(R.id.user_item_htv_distance);
 			holder.mHtvTime = (HandyTextView) convertView.findViewById(R.id.user_item_htv_time);
 			holder.mHtvSign = (HandyTextView) convertView.findViewById(R.id.user_item_htv_sign);
+
 			convertView.setTag(holder);
 		}
 		else

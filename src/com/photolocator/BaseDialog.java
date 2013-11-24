@@ -60,9 +60,9 @@ public class BaseDialog extends Dialog implements android.view.View.OnClickListe
 
 	private void initEvents()
 	{
-		mBtnButton1.setOnClickListener(this);
+/*		mBtnButton1.setOnClickListener(this);
 		mBtnButton2.setOnClickListener(this);
-		mBtnButton3.setOnClickListener(this);
+		mBtnButton3.setOnClickListener(this);*/
 	}
 
 	/**

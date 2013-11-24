@@ -61,6 +61,7 @@ public class NearByActivity extends TabItemActivity
 		mPeopleFragment = new NearByPeopleFragment(mApplication, this, this);
 		FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 		ft.replace(R.id.nearby_layout_content, mPeopleFragment).commit();
+
 	}
 
 	private void initPopupWindow()
@@ -75,6 +76,7 @@ public class NearByActivity extends TabItemActivity
 				mPeopleFragment.onManualRefresh();
 			}
 		});
+
 		mPopupWindow.setOnDismissListener(new OnDismissListener()
 		{
 
@@ -92,14 +94,10 @@ public class NearByActivity extends TabItemActivity
 		@Override
 		public void onClick(boolean isSelect)
 		{
-			if (isSelect)
-			{
-				mPopupWindow.showViewTopCenter(findViewById(R.id.nearby_layout_root));
-			}
-			else
-			{
-				mPopupWindow.dismiss();
-			}
+			/*
+			 * if (isSelect) { mPopupWindow.showViewTopCenter(findViewById(R.id.nearby_layout_root)); } else {
+			 * mPopupWindow.dismiss(); }
+			 */
 		}
 	}
 

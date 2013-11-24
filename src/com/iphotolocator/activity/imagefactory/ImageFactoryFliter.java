@@ -5,11 +5,7 @@ import java.util.List;
 
 import android.graphics.Bitmap;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.photolocator.R;
 import com.photolocator.utility.PhotoUtils;
 import com.photolocator.view.RotateImageView;
 import com.photolocator.view.RotateImageView.RotateType;
@@ -34,7 +30,7 @@ public class ImageFactoryFliter extends ImageFactory
 	@Override
 	public void initViews()
 	{
-		mRivImage = (RotateImageView) findViewById(R.id.imagefactory_fliter_riv_image);
+		// mRivImage = (RotateImageView) findViewById(R.id.imagefactory_fliter_riv_image);
 	}
 
 	@Override
@@ -91,33 +87,32 @@ public class ImageFactoryFliter extends ImageFactory
 	private void initFilterBlocks()
 	{
 		mFliterBlocks = new View[8];
-		mFliterBlocks[0] = findViewById(R.id.imagefactory_fliter_item_1);
-		mFliterBlocks[1] = findViewById(R.id.imagefactory_fliter_item_2);
-		mFliterBlocks[2] = findViewById(R.id.imagefactory_fliter_item_3);
-		mFliterBlocks[3] = findViewById(R.id.imagefactory_fliter_item_4);
-		mFliterBlocks[4] = findViewById(R.id.imagefactory_fliter_item_5);
-		mFliterBlocks[5] = findViewById(R.id.imagefactory_fliter_item_6);
-		mFliterBlocks[6] = findViewById(R.id.imagefactory_fliter_item_7);
-		mFliterBlocks[7] = findViewById(R.id.imagefactory_fliter_item_8);
+		/*
+		 * mFliterBlocks[0] = findViewById(R.id.imagefactory_fliter_item_1); mFliterBlocks[1] =
+		 * findViewById(R.id.imagefactory_fliter_item_2); mFliterBlocks[2] =
+		 * findViewById(R.id.imagefactory_fliter_item_3); mFliterBlocks[3] =
+		 * findViewById(R.id.imagefactory_fliter_item_4); mFliterBlocks[4] =
+		 * findViewById(R.id.imagefactory_fliter_item_5); mFliterBlocks[5] =
+		 * findViewById(R.id.imagefactory_fliter_item_6); mFliterBlocks[6] =
+		 * findViewById(R.id.imagefactory_fliter_item_7); mFliterBlocks[7] =
+		 * findViewById(R.id.imagefactory_fliter_item_8);
+		 */
 		for (int i = 0; i < mFilterItems.size(); i++)
 		{
-			View cover = mFliterBlocks[i].findViewById(R.id.filter_item_cover);
-			cover.setTag(i);
-			cover.setOnClickListener(new OnClickListener()
-			{
-
-				@Override
-				public void onClick(View v)
-				{
-					mSelectBlock = (Integer) v.getTag();
-					refreshBlockBg();
-					changeImage();
-				}
-			});
-			ImageView image = (ImageView) mFliterBlocks[i].findViewById(R.id.filter_item_image);
-			TextView text = (TextView) mFliterBlocks[i].findViewById(R.id.filter_item_text);
-			image.setImageBitmap(PhotoUtils.getFilter(mFilterItems.get(i).mFilterType, mBitmap));
-			text.setText(mFilterItems.get(i).mFilterName);
+			// View cover = mFliterBlocks[i].findViewById(R.id.filter_item_cover);
+			// cover.setTag(i);
+			/*
+			 * //cover.setOnClickListener(new OnClickListener() {
+			 * 
+			 * @Override public void onClick(View v) { mSelectBlock = (Integer) v.getTag(); refreshBlockBg();
+			 * changeImage(); } });
+			 */
+			/*
+			 * ImageView image = (ImageView) mFliterBlocks[i].findViewById(R.id.filter_item_image); TextView text =
+			 * (TextView) mFliterBlocks[i].findViewById(R.id.filter_item_text);
+			 */
+			// image.setImageBitmap(PhotoUtils.getFilter(mFilterItems.get(i).mFilterType, mBitmap));
+			// text.setText(mFilterItems.get(i).mFilterName);
 
 		}
 	}
@@ -126,14 +121,14 @@ public class ImageFactoryFliter extends ImageFactory
 	{
 		for (int i = 0; i < mFilterItems.size(); i++)
 		{
-			View cover = mFliterBlocks[i].findViewById(R.id.filter_item_cover);
+			// View cover = mFliterBlocks[i].findViewById(R.id.filter_item_cover);
 			if (mSelectBlock == i)
 			{
-				cover.setSelected(true);
+				// cover.setSelected(true);
 			}
 			else
 			{
-				cover.setSelected(false);
+				// cover.setSelected(false);
 			}
 		}
 	}

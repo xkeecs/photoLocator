@@ -40,11 +40,13 @@ public class EmoteInputView extends LinearLayout implements OnClickListener, OnC
 		init();
 	}
 
-	public EmoteInputView(Context context, AttributeSet attrs, int defStyle)
-	{
-		super(context, attrs, defStyle);
-		init();
-	}
+	/*
+	 * public EmoteInputView(Context context, AttributeSet attrs, int defStyle) {
+	 * 
+	 * super(context, attrs, defStyle); init();
+	 * 
+	 * }
+	 */
 
 	public EmoteInputView(Context context, AttributeSet attrs)
 	{

@@ -115,14 +115,9 @@ public class FeedProfileActivity extends BaseActivity implements OnItemClickList
 	@Override
 	public void onBackPressed()
 	{
-		if (mInputView.isShown())
-		{
-			mInputView.setVisibility(View.GONE);
-		}
-		else
-		{
-			finish();
-		}
+		/*
+		 * if (mInputView.isShown()) { mInputView.setVisibility(View.GONE); } else { finish(); }
+		 */
 	}
 
 	@Override

@@ -7,8 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.photolocator.BaseArrayListAdapter;
-import com.photolocator.R;
-import com.photolocator.view.HandyTextView;
 
 public class SimpleListDialogAdapter extends BaseArrayListAdapter
 {
@@ -28,9 +26,9 @@ public class SimpleListDialogAdapter extends BaseArrayListAdapter
 	{
 		if (arg1 == null)
 		{
-			arg1 = mInflater.inflate(R.layout.listitem_dialog, null);
+			// arg1 = mInflater.inflate(R.layout.listitem_dialog, null);
 		}
-		((HandyTextView) arg1.findViewById(R.id.listitem_dialog_text)).setText((CharSequence) getItem(arg0));
+		// ((HandyTextView) arg1.findViewById(R.id.listitem_dialog_text)).setText((CharSequence) getItem(arg0));
 		return arg1;
 	}
 }

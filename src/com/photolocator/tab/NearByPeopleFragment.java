@@ -1,5 +1,6 @@
 package com.photolocator.tab;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -22,6 +23,7 @@ import com.photolocator.view.MoMoRefreshListView;
 import com.photolocator.view.MoMoRefreshListView.OnCancelListener;
 import com.photolocator.view.MoMoRefreshListView.OnRefreshListener;
 
+@SuppressLint("ValidFragment")
 public class NearByPeopleFragment extends BaseFragment implements OnItemClickListener, OnRefreshListener,
 		OnCancelListener
 {

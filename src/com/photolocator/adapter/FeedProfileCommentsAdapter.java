@@ -9,7 +9,6 @@ import android.widget.ImageView;
 
 import com.photolocator.BaseApplication;
 import com.photolocator.BaseObjectListAdapter;
-import com.photolocator.R;
 import com.photolocator.entity.Entity;
 import com.photolocator.entity.FeedComment;
 import com.photolocator.view.EmoticonsTextView;
@@ -29,12 +28,13 @@ public class FeedProfileCommentsAdapter extends BaseObjectListAdapter
 		ViewHolder holder = null;
 		if (convertView == null)
 		{
-			convertView = mInflater.inflate(R.layout.listitem_feedcomment, null);
-			holder = new ViewHolder();
-			holder.mIvAvatar = (ImageView) convertView.findViewById(R.id.feedcomment_item_iv_avatar);
-			holder.mEtvName = (EmoticonsTextView) convertView.findViewById(R.id.feedcomment_item_etv_name);
-			holder.mEtvContent = (EmoticonsTextView) convertView.findViewById(R.id.feedcomment_item_etv_content);
-			holder.mHtvTime = (HandyTextView) convertView.findViewById(R.id.feedcomment_item_htv_time);
+			/*
+			 * convertView = mInflater.inflate(R.layout.listitem_feedcomment, null); holder = new ViewHolder();
+			 * holder.mIvAvatar = (ImageView) convertView.findViewById(R.id.feedcomment_item_iv_avatar); holder.mEtvName
+			 * = (EmoticonsTextView) convertView.findViewById(R.id.feedcomment_item_etv_name); holder.mEtvContent =
+			 * (EmoticonsTextView) convertView.findViewById(R.id.feedcomment_item_etv_content); holder.mHtvTime =
+			 * (HandyTextView) convertView.findViewById(R.id.feedcomment_item_htv_time);
+			 */
 			convertView.setTag(holder);
 		}
 		else
