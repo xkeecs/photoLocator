@@ -49,8 +49,18 @@ public class JsonResolveUtils
 	{
 		NearByPeople people = null;
 		JSONObject object = null;
-		people = new NearByPeople("abc", "ni chen", 1, 1, "cds", 1, 1, 1, 1, 1, 1, "kai", 1, 1, "200", "2001", "ok");
+
+		/*
+		 * NearByPeople(String uid, String avatar, int isVip, int isGroupRole, String industry, int isbindWeibo, int
+		 * isbindTxWeibo, int isbindRenRen, int device, int isRelation, int isMultipic, String name, int gender, int
+		 * age, String distance, String time, String sign)
+		 */
+		people = new NearByPeople("uid", "nick_name", 1, 1, "cds", 1, 1, 1, 1, 1, 1, "Kai", 1, 1, "2013", "2014", "ok");
 		application.mNearByPeoples.add(people);
+
+		people = new NearByPeople("cde", "Mr. Xu", 1, 1, "cds", 1, 1, 1, 1, 1, 1, "XuePeng", 1, 1, "2013", "2014", "ok");
+		application.mNearByPeoples.add(people);
+
 		if (application.mNearByPeoples != null && application.mNearByPeoples.isEmpty())
 		{
 
