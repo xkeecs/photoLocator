@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.TabHost;
 
 import com.photolocator.R;
+import com.photolocator.photosave.MainActivity;
+import com.photolocator.photosave.ResturatantActivity;
 
 @SuppressWarnings("deprecation")
 public class MainTabActivity extends TabActivity
@@ -38,11 +40,10 @@ public class MainTabActivity extends TabActivity
 		nearbyTabSpec.setContent(new Intent(MainTabActivity.this, NearByActivity.class));
 		mTabHost.addTab(nearbyTabSpec);
 
-		View nearbyFeedsView = inflater.inflate(R.layout.common_bottombar_tab_site, null);
-		TabHost.TabSpec nearbyFeedsTabSpec = mTabHost.newTabSpec(NearByFeedsActivity.class.getName()).setIndicator(
-				nearbyFeedsView);
-		nearbyFeedsTabSpec.setContent(new Intent(MainTabActivity.this, NearByFeedsActivity.class));
-		mTabHost.addTab(nearbyFeedsTabSpec);
+		View photoView = inflater.inflate(R.layout.common_bottombar_tab_site, null);
+		TabHost.TabSpec photoViewSpec = mTabHost.newTabSpec(MainActivity.class.getName()).setIndicator(photoView);
+		photoViewSpec.setContent(new Intent(MainTabActivity.this, MainActivity.class));
+		mTabHost.addTab(photoViewSpec);
 
 		/*
 		 * View sessionListView = inflater.inflate(R.layout.common_bottombar_tab_chat, null); TabHost.TabSpec
@@ -57,11 +58,11 @@ public class MainTabActivity extends TabActivity
 		takePhotoSpec.setContent(new Intent(MainTabActivity.this, TakePhotoActivity.class));
 		mTabHost.addTab(takePhotoSpec);
 
-		View contactView = inflater.inflate(R.layout.common_bottombar_tab_friend, null);
-		TabHost.TabSpec contactTabSpec = mTabHost.newTabSpec(ContactTabsActivity.class.getName()).setIndicator(
-				contactView);
-		contactTabSpec.setContent(new Intent(MainTabActivity.this, ContactTabsActivity.class));
-		mTabHost.addTab(contactTabSpec);
+		View resturatantView = inflater.inflate(R.layout.common_bottombar_tab_friend, null);
+		TabHost.TabSpec resturatantTabSpec = mTabHost.newTabSpec(ResturatantActivity.class.getName()).setIndicator(
+				resturatantView);
+		resturatantTabSpec.setContent(new Intent(MainTabActivity.this, ResturatantActivity.class));
+		mTabHost.addTab(resturatantTabSpec);
 
 		View userSettingView = inflater.inflate(R.layout.common_bottombar_tab_profile, null);
 		TabHost.TabSpec userSettingTabSpec = mTabHost.newTabSpec(UserSettingActivity.class.getName()).setIndicator(

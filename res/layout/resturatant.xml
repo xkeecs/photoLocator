@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/transparent"
+    android:weightSum="1"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/direction_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="10dp"
+        android:background="#ff999999"
+        android:paddingLeft="5dp"
+        android:paddingTop="5dp"
+        android:text="Resturatant"
+        android:textColor="#ff000000"
+        android:textSize="13dip" />
+
+    <ListView
+        android:id="@+id/eventsList"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:layout_below="@+id/direction_label"
+        android:background="#ffffff" >
+    </ListView>
+
+
+    
+    <TextView
+        android:id="@+id/direction_label1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#ff999999"
+        android:paddingLeft="5dp"
+        android:paddingTop="5dp"
+        android:text="Travel Agency"
+        android:textColor="#ff000000"
+        android:textSize="13dip" />
+
+    <ListView
+        android:id="@+id/eventsList1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:layout_below="@+id/direction_label1"
+        android:background="#ffffff" >
+    </ListView>
+
+    <TextView
+        android:id="@+id/empty_list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:text=""
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+</LinearLayout>

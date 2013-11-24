@@ -121,7 +121,7 @@
                 android:layout_height="40dip"
                 android:layout_margin="5dip"
                 android:background="@drawable/btn_default_white"
-                android:text="登录"
+                android:text="Login"
                 android:textColor="#ff465579" />
 
             <ImageButton
