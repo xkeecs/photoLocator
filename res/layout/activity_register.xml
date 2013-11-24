@@ -18,7 +18,9 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
             android:ems="10"
-            android:inputType="text" />
+            android:inputType="text" >
+            <requestFocus />
+        </EditText>
 
         <TextView
             android:id="@+id/textview_user_name"
@@ -46,8 +48,7 @@
             android:layout_alignParentRight="true"
             android:ems="10"
             android:inputType="textPassword" >
-
-            <requestFocus />
+            
         </EditText>
 
         <TextView
