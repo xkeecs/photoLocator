@@ -135,7 +135,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:focusable="false"
-                android:text="个人动态"
+                android:text="personal info"
                 android:textColor="@color/font_attribute"
                 android:textSize="16sp" />
 

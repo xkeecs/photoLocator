@@ -20,7 +20,7 @@
             android:paddingLeft="10dip"
             android:paddingRight="10dip"
             android:paddingTop="10dip"
-            android:text="基本信息"
+            android:text="bio"
             android:textColor="@color/blue"
             android:textSize="14sp" />
 
@@ -56,7 +56,7 @@
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
                     android:gravity="center"
-                    android:text="会员"
+                    android:text="member"
                     android:textColor="@color/font_attribute"
                     android:textSize="18sp" />
 
@@ -104,7 +104,7 @@
                         android:layout_alignParentLeft="true"
                         android:layout_centerVertical="true"
                         android:gravity="center"
-                        android:text="陌陌号"
+                        android:text="ID"
                         android:textColor="@color/font_attribute"
                         android:textSize="18sp" />
 
@@ -141,7 +141,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"
-                        android:text="个人签名"
+                        android:text="twitter"
                         android:textColor="@color/font_attribute"
                         android:textSize="18sp" />
 
@@ -151,7 +151,7 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/otherprofile_info_htv_sign_title"
                         android:autoLink="all"
-                        android:text="今天的天气真是不错的~"
+                        android:text="good wether today"
                         android:textColor="@color/font_value"
                         android:textSize="16sp" />
                 </RelativeLayout>
@@ -194,7 +194,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
-                    android:text="公司"
+                    android:text="company"
                     android:textColor="@color/font_attribute"
                     android:textSize="18sp" />
 
@@ -202,7 +202,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/otherprofile_info_htv_company_title"
-                    android:text="青岛xxxxx有限公司"
+                    android:text="McGill University"
                     android:textColor="@color/font_value"
                     android:textSize="16sp" />
             </RelativeLayout>
@@ -228,7 +228,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
-                    android:text="学校"
+                    android:text="School"
                     android:textColor="@color/font_attribute"
                     android:textSize="18sp" />
 
@@ -236,7 +236,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/otherprofile_info_htv_school_title"
-                    android:text="青岛xxxxx中学"
+                    android:text="McGill High School"
                     android:textColor="@color/font_value"
                     android:textSize="16sp" />
             </RelativeLayout>
@@ -257,7 +257,7 @@
             android:paddingLeft="10dip"
             android:paddingRight="10dip"
             android:paddingTop="10dip"
-            android:text="账号信息"
+            android:text="Account info"
             android:textColor="@color/blue"
             android:textSize="14sp" />
 
@@ -286,7 +286,7 @@
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
                     android:gravity="center"
-                    android:text="注册时间"
+                    android:text=""
                     android:textColor="@color/font_attribute"
                     android:textSize="18sp" />
 
@@ -296,7 +296,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:singleLine="true"
-                    android:text="2013-9-1"
+                    android:text=""
                     android:textColor="@color/font_value"
                     android:textSize="18sp" />
             </RelativeLayout>
@@ -325,7 +325,7 @@
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
                     android:gravity="center"
-                    android:text="关系"
+                    android:text="relation"
                     android:textColor="@color/font_attribute"
                     android:textSize="18sp" />
 
@@ -335,7 +335,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:singleLine="true"
-                    android:text="陌生人"
+                    android:text=""
                     android:textColor="@color/font_value"
                     android:textSize="18sp" />
             </RelativeLayout>

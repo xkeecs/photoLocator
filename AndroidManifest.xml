@@ -92,7 +92,22 @@
             android:name=".activity.imagefactory.ImageFactoryActivity"
             android:screenOrientation="portrait" >
         </activity>
-
+   <activity
+            android:name=".photosave.ResturatantActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+           <activity
+            android:name=".photosave.MainActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+              <activity
+            android:name=".photosave.DetailActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+              <activity
+            android:name=".photosave.SettingActivity"
+            android:screenOrientation="portrait" >
+        </activity>
     </application>
 
 </manifest>
