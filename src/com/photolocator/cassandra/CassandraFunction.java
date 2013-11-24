@@ -33,9 +33,9 @@ public class CassandraFunction {
 	public static String PHOTO = "photo";
 	public static String LOCATION = "location";
 	public static String CELLPHONETYPE = "cellphoneType";
-	public static String LATITUDE = "Latitude";
-	public static String LONGITUDE = "Longitude";
-	public static String ALTITUDE = "Altitude";
+	public static String LATITUDE = "latitude";
+	public static String LONGITUDE = "longitude";
+	public static String ALTITUDE = "altitude";
 	public static String TIME = "time";
 
 	// public static String
@@ -84,8 +84,8 @@ public class CassandraFunction {
 			@Override
 			public void onFailure(Throwable e, String errorResponse) {
 				// TODO Auto-generated method stub
-				Log.i("CassandraLogin", errorResponse);
-				Toast.makeText(null, errorResponse, Toast.LENGTH_LONG).show();
+				//Log.i("CassandraLogin", errorResponse);
+				//Toast.makeText(null, errorResponse, Toast.LENGTH_LONG).show();
 				ccb.passwdRetrived(null);
 			}
 
@@ -157,17 +157,20 @@ public class CassandraFunction {
 			ByteArrayOutputStream stream = new ByteArrayOutputStream();
 			bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
 			byte[] byteArray = stream.toByteArray();
-			json.put(PHOTO, new String(byteArray));
+			String s=new String(byteArray,"UTF8");
+			json.put(PHOTO, s);
 
 			json.put(LOCATION, locationName);
-			json.put(ALTITUDE, location.getAltitude());
-			json.put(LATITUDE, location.getLatitude());
-			json.put(LONGITUDE, location.getLongitude());
-			json.put(TIME, time.getTime());
+			if(location!=null){
+				json.put(ALTITUDE, location.getAltitude());
+				json.put(LATITUDE, location.getLatitude());
+				json.put(LONGITUDE, location.getLongitude());
+			}
+			json.put(TIME, String.valueOf((time.getTime())));
 
 			String url = DATAURL + username;
 			StringEntity entity = new StringEntity(json.toString());
-			Log.i("CassandraInserData", url);
+			Log.i("CassandraInserData", url+":"+json.toString());
 			client.put(context, url, entity, null,
 					new AsyncHttpResponseHandler() {
 

@@ -1,26 +1,37 @@
 package com.photolocator.tab;
 
+import java.util.Date;
+
 import com.photolocator.R;
+import com.photolocator.cassandra.CassandraCallback;
+import com.photolocator.cassandra.CassandraDataUnit;
+import com.photolocator.cassandra.CassandraFunction;
 
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.location.Location;
+import android.location.LocationListener;
 import android.location.LocationManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 public class TakePhotoActivity extends TabItemActivity implements OnClickListener{
 	
 	private Button mTakePhoto;
 	private Button mSend;
 	private ImageView mImage;
-	private Bitmap mImageBitmap;
+	private Bitmap mImageBitmap=null;
+	private CassandraFunction cf;
 	
 	public static int TAKEPHOTOCODE=1;
 	
@@ -30,6 +41,22 @@ public class TakePhotoActivity extends TabItemActivity implements OnClickListene
 		super.onCreate(savedInstanceState);
 		initViews();
 		initEvents();
+		cf=new CassandraFunction(new CassandraCallback(){
+
+			/* (non-Javadoc)
+			 * @see com.photolocator.cassandra.CassandraCallback#dataInserted(boolean)
+			 */
+			@Override
+			public void dataInserted(boolean ret) {
+				// TODO Auto-generated method stub
+				super.dataInserted(ret);
+				if(ret)
+					Toast.makeText(TakePhotoActivity.this, "updated", Toast.LENGTH_LONG).show();
+				else
+					Toast.makeText(TakePhotoActivity.this, "Fail to update", Toast.LENGTH_LONG).show();
+			}
+			
+		});
 	}
 
 	
@@ -96,15 +123,48 @@ public class TakePhotoActivity extends TabItemActivity implements OnClickListene
 	
 	private void send(){
 		
-//		LocationManager locManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);         
-//
-//	    locManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,1000L,500.0f, locationListener);
-//	    Location location = locManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-//
-//	    double latitude=0;
-//	    double longitude=0;
-//	    latitude = location.getLatitude();
-//	    longitude = location.getLongitude();
+		LocationManager locManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);         
+
+	    locManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,1000L,500.0f, new LocationListener(){
+
+			@Override
+			public void onLocationChanged(Location arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void onProviderDisabled(String arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void onProviderEnabled(String arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void onStatusChanged(String arg0, int arg1, Bundle arg2) {
+				// TODO Auto-generated method stub
+				
+			}
+	    	
+	    });
+	    
+	    Location location = locManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+	    
+	    CassandraDataUnit cdu=new CassandraDataUnit();
+	    cdu.setLocation(location);
+	    cdu.setBitmap(mImageBitmap);
+	    cdu.setTime(new Date());
+	    cdu.setLocationName("Canada");
+	    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+	    cdu.setUserName(prefs.getString("username", null));
+	    cdu.setCellphoneType(Build.MANUFACTURER+"-"+Build.MODEL);
+	    cdu.setText("Comments");
+	    cf.insertData(mApplication, cdu);
 	}
 
 }
