@@ -115,9 +115,16 @@ public class FeedProfileActivity extends BaseActivity implements OnItemClickList
 	@Override
 	public void onBackPressed()
 	{
-		/*
-		 * if (mInputView.isShown()) { mInputView.setVisibility(View.GONE); } else { finish(); }
-		 */
+
+		if (mInputView.isShown())
+		{
+			mInputView.setVisibility(View.GONE);
+		}
+		else
+		{
+			finish();
+		}
+
 	}
 
 	@Override
@@ -562,7 +569,7 @@ public class FeedProfileActivity extends BaseActivity implements OnItemClickList
 				super.onPostExecute(result);
 				if (!result)
 				{
-					showCustomToast("数据加载失败...");
+					showCustomToast("Failed...");
 					mLayoutLoading.setVisibility(View.GONE);
 					mIvLoading.clearAnimation();
 				}

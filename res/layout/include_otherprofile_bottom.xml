@@ -28,7 +28,7 @@
         <com.photolocator.view.HandyTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="对话"
+            android:text="Talk to her"
             android:textColor="@color/profile_bottom_text_color"
             android:textSize="14sp" />
     </LinearLayout>

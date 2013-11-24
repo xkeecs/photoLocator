@@ -38,7 +38,7 @@ public class JsonResolveUtils
 	private static final String SUFFIX = ".json";
 	// 状态评论
 	private static final String FEEDCOMMENT = "feedcomment.json";
-	
+
 	/**
 	 * 解析附近个人Json数据
 	 * 
@@ -49,7 +49,7 @@ public class JsonResolveUtils
 	{
 		NearByPeople people = null;
 		JSONObject object = null;
-		
+
 		/*
 		 * NearByPeople(String uid, String avatar, int isVip, int isGroupRole, String industry, int isbindWeibo, int
 		 * isbindTxWeibo, int isbindRenRen, int device, int isRelation, int isMultipic, String name, int gender, int
@@ -60,7 +60,18 @@ public class JsonResolveUtils
 
 		people = new NearByPeople("cde", "Mr. Xu", 1, 1, "cds", 1, 1, 1, 1, 1, 1, "XuePeng", 1, 1, "2013", "2014", "ok");
 		application.mNearByPeoples.add(people);
+		people = new NearByPeople("cde", "Mr. Xu", 1, 1, "cds", 1, 1, 1, 1, 1, 1, "James McGill", 1, 1, "2013", "2014",
+				"ok");
+		application.mNearByPeoples.add(people);
 
+		people = new NearByPeople("cde", "Mr. Xu", 1, 1, "cds", 1, 1, 1, 1, 1, 1, "John Smith", 1, 1, "2013", "2014",
+				"ok");
+		application.mNearByPeoples.add(people);
+
+		people = new NearByPeople("cde", "Mr. Xu", 1, 1, "cds", 1, 1, 1, 1, 1, 1, "Steven. Low", 1, 1, "2013", "2014",
+				"ok");
+
+		application.mNearByPeoples.add(people);
 		if (application.mNearByPeoples != null && application.mNearByPeoples.isEmpty())
 		{
 

@@ -82,9 +82,11 @@ public abstract class BaseActivity extends FragmentActivity
 
 	protected void showLoadingDialog(String text)
 	{
+
 		/*
 		 * if (text != null) { mLoadingDialog.setText(text); } mLoadingDialog.show();
 		 */
+
 	}
 
 	protected void dismissLoadingDialog()

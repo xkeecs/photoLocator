@@ -1,85 +1,90 @@
 package com.photolocator.photosave;
 
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.content.Context;
-
-import com.photolocator.cassandra.*;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-
-import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import android.content.Context;
+
+import com.photolocator.cassandra.CassandraCallback;
+import com.photolocator.cassandra.CassandraDataUnit;
 import com.photolocator.cassandra.CassandraFunction;
 
-public class NamesParser {
+public class NamesParser
+{
 
 	Item objItem;
 	List<Item> listArray;
 	SetbackList ra;
-	
-	CassandraFunction cf;
-	
-	public NamesParser(SetbackList ra){
-		this.ra=ra;
-		cf=new CassandraFunction(new CassandraCallback(){
 
-			/* (non-Javadoc)
+	CassandraFunction cf;
+
+	public NamesParser(SetbackList ra)
+	{
+		this.ra = ra;
+		cf = new CassandraFunction(new CassandraCallback()
+		{
+
+			/*
+			 * (non-Javadoc)
+			 * 
 			 * @see com.photolocator.cassandra.CassandraCallback#dataReaded(java.util.ArrayList)
 			 */
 			@Override
-			public void dataReaded(ArrayList<CassandraDataUnit> cdus) {
+			public void dataReaded(ArrayList<CassandraDataUnit> cdus)
+			{
 				// TODO Auto-generated method stub
 				super.dataReaded(cdus);
-				try {
+				try
+				{
 
 					listArray = new ArrayList<Item>();
 
-//					DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-//					DocumentBuilder db = dbf.newDocumentBuilder();
-//					Document doc = db.parse(new URL(url).openStream());
-//
-//					doc.getDocumentElement().normalize();
+					// DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+					// DocumentBuilder db = dbf.newDocumentBuilder();
+					// Document doc = db.parse(new URL(url).openStream());
+					//
+					// doc.getDocumentElement().normalize();
 
-					//NodeList nList = doc.getElementsByTagName("item");
+					// NodeList nList = doc.getElementsByTagName("item");
 
-					for (int temp = 0; temp < cdus.size(); temp++) {
+					for (int temp = 0; temp < cdus.size(); temp++)
+					{
 
+						objItem = new Item();
 
-							objItem = new Item();
+						objItem.setId(cdus.get(temp).getUserName());
+						objItem.setTitle(cdus.get(temp).getLocationName());
+						objItem.setPubdate(cdus.get(temp).getTime().toString());
+						objItem.setBitmap(cdus.get(temp).getBitmap());
 
-							objItem.setId(cdus.get(temp).getUserName());
-							objItem.setTitle(cdus.get(temp).getLocationName());
-							objItem.setPubdate(cdus.get(temp).getTime().toString());
-							objItem.setBitmap(cdus.get(temp).getBitmap());
-
-							listArray.add(objItem);
+						listArray.add(objItem);
 					}
 
-				} catch (Exception e) {
+				}
+				catch (Exception e)
+				{
 					e.printStackTrace();
 				}
 				NamesParser.this.ra.setbackList(listArray);
 			}
-			
+
 		});
-		
+
 	}
 
-	public void getData(Context context, String username) {
+	public void getData(Context context, String username)
+	{
 
 		cf.readDataByUserName(context, username);
 	}
 
-	private static String getTagValue(String sTag, Element eElement) {
-		NodeList nlList = eElement.getElementsByTagName(sTag).item(0)
-				.getChildNodes();
+	private static String getTagValue(String sTag, Element eElement)
+	{
+		NodeList nlList = eElement.getElementsByTagName(sTag).item(0).getChildNodes();
 
 		Node nValue = (Node) nlList.item(0);
 

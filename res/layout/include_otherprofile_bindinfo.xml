@@ -16,7 +16,7 @@
         android:paddingLeft="10dip"
         android:paddingRight="10dip"
         android:paddingTop="10dip"
-        android:text="社交与绑定信息"
+        android:text=""
         android:textColor="@color/blue"
         android:textSize="14sp" />
 
