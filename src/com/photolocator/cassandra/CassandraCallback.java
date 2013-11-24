@@ -1,5 +1,7 @@
 package com.photolocator.cassandra;
 
+import java.util.ArrayList;
+
 public abstract class CassandraCallback {
 	public void passwdRetrived(String passwd){
 		
@@ -13,7 +15,7 @@ public abstract class CassandraCallback {
 		
 	}
 	
-	public  void dataReaded(CassandraDataUnit cdu){
+	public  void dataReaded(ArrayList<CassandraDataUnit> cdus){
 		
 	}
 }

@@ -32,11 +32,11 @@ public class MainTabActivity extends TabActivity
 	{
 		LayoutInflater inflater = LayoutInflater.from(MainTabActivity.this);
 
-		View nearbyView = inflater.inflate(R.layout.common_bottombar_tab_nearby, null);
+//		View nearbyView = inflater.inflate(R.layout.common_bottombar_tab_nearby, null);
 
-		TabHost.TabSpec nearbyTabSpec = mTabHost.newTabSpec(NearByActivity.class.getName()).setIndicator(nearbyView);
-		nearbyTabSpec.setContent(new Intent(MainTabActivity.this, NearByActivity.class));
-		mTabHost.addTab(nearbyTabSpec);
+//		TabHost.TabSpec nearbyTabSpec = mTabHost.newTabSpec(NearByActivity.class.getName()).setIndicator(nearbyView);
+//		nearbyTabSpec.setContent(new Intent(MainTabActivity.this, NearByActivity.class));
+//		mTabHost.addTab(nearbyTabSpec);
 
 		View nearbyFeedsView = inflater.inflate(R.layout.common_bottombar_tab_site, null);
 		TabHost.TabSpec nearbyFeedsTabSpec = mTabHost.newTabSpec(NearByFeedsActivity.class.getName()).setIndicator(
@@ -50,6 +50,10 @@ public class MainTabActivity extends TabActivity
 		 * sessionListTabSpec.setContent(new Intent(MainTabActivity.this, SessionListActivity.class));
 		 * mTabHost.addTab(sessionListTabSpec);
 		 */
+		View takephotoView = inflater.inflate(R.layout.common_bottombar_tab_takephoto, null);
+		TabHost.TabSpec takePhotoSpec = mTabHost.newTabSpec(TakePhotoActivity.class.getName()).setIndicator(takephotoView);
+		takePhotoSpec.setContent(new Intent(MainTabActivity.this,TakePhotoActivity.class));
+		mTabHost.addTab(takePhotoSpec);
 
 		View contactView = inflater.inflate(R.layout.common_bottombar_tab_friend, null);
 		TabHost.TabSpec contactTabSpec = mTabHost.newTabSpec(ContactTabsActivity.class.getName()).setIndicator(

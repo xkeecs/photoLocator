@@ -56,6 +56,16 @@
             android:screenOrientation="portrait" >
         </activity>
         
+        <activity
+            android:name=".tab.TakePhotoActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        
+        <activity
+            android:name=".tab.NearByActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        
     </application>
 
 </manifest>

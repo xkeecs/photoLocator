@@ -11,8 +11,10 @@ public class CassandraDataUnit {
 	private String photoName;
 	private Bitmap bitmap;
 	private Location location;
+	private String locationName;
 	private Date time;
 	private String cellphoneType;
+	private String text;
 	
 	public CassandraDataUnit(){
 		userName=null;
@@ -21,6 +23,8 @@ public class CassandraDataUnit {
 		location=null;
 		time=null;
 		cellphoneType=null;
+		locationName=null;
+		text=null;
 	}
 
 	/**
@@ -105,6 +109,34 @@ public class CassandraDataUnit {
 	 */
 	public void setCellphoneType(String cellphoneType) {
 		this.cellphoneType = cellphoneType;
+	}
+
+	/**
+	 * @return the locationName
+	 */
+	public String getLocationName() {
+		return locationName;
+	}
+
+	/**
+	 * @param locationName the locationName to set
+	 */
+	public void setLocationName(String locationName) {
+		this.locationName = locationName;
+	}
+
+	/**
+	 * @return the text
+	 */
+	public String getText() {
+		return text;
+	}
+
+	/**
+	 * @param text the text to set
+	 */
+	public void setText(String text) {
+		this.text = text;
 	}
 	
 	
