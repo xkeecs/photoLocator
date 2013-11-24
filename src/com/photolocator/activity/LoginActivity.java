@@ -94,7 +94,7 @@ public class LoginActivity extends com.photolocator.BaseActivity implements OnCl
 			mSimpleListDialog.setAdapter(new SimpleListDialogAdapter(LoginActivity.this, mCountryCodes));
 			mSimpleListDialog.setOnSimpleListItemClickListener(LoginActivity.this);
 			mSimpleListDialog.show();*/
-			break;
+			//break;
 
 		case R.id.login_btn_back:
 			finish();
