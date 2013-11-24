@@ -25,7 +25,7 @@ public class ResturatantActivity extends Activity implements OnItemClickListener
 	public void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.main);
+		setContentView(R.layout.resturatant);
 
 		listView = (ListView) findViewById(R.id.listview);
 		listView.setOnItemClickListener(this);

@@ -10,6 +10,7 @@ import android.widget.TabHost;
 import com.photolocator.R;
 import com.photolocator.photosave.MainActivity;
 import com.photolocator.photosave.ResturatantActivity;
+import com.photolocator.photosave.SettingActivity;
 
 @SuppressWarnings("deprecation")
 public class MainTabActivity extends TabActivity
@@ -65,9 +66,9 @@ public class MainTabActivity extends TabActivity
 		mTabHost.addTab(resturatantTabSpec);
 
 		View userSettingView = inflater.inflate(R.layout.common_bottombar_tab_profile, null);
-		TabHost.TabSpec userSettingTabSpec = mTabHost.newTabSpec(UserSettingActivity.class.getName()).setIndicator(
+		TabHost.TabSpec userSettingTabSpec = mTabHost.newTabSpec(SettingActivity.class.getName()).setIndicator(
 				userSettingView);
-		userSettingTabSpec.setContent(new Intent(MainTabActivity.this, UserSettingActivity.class));
+		userSettingTabSpec.setContent(new Intent(MainTabActivity.this, SettingActivity.class));
 		mTabHost.addTab(userSettingTabSpec);
 
 	}
