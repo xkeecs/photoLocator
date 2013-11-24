@@ -3,8 +3,11 @@ package com.photolocator.activity;
 import java.util.regex.Pattern;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -44,12 +47,14 @@ public class LoginActivity extends com.photolocator.BaseActivity implements OnCl
 
 	private SimpleListDialog mSimpleListDialog;
 	private String[] mCountryCodes;
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
+		
 		initViews();
 		initEvents();
 		cf=new CassandraFunction(new CassandraCallback(){
@@ -137,6 +142,9 @@ public class LoginActivity extends com.photolocator.BaseActivity implements OnCl
 		if(mAccount==null || mPassword==null){
 			return;
 		}
+		SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(this).edit();
+		editor.putString("username", mAccount);
+		editor.commit();
 		cf.retrivePassword(mApplication, mAccount);
 		showLoadingDialog("Please wait...");
 	}
