@@ -1,18 +1,13 @@
 package com.photolocator.activity;
 
-import java.util.regex.Pattern;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.photolocator.R;
 import com.photolocator.cassandra.CassandraCallback;
@@ -40,44 +35,47 @@ public class LoginActivity extends com.photolocator.BaseActivity implements OnCl
 	private Button mBtnLogin;
 	private CassandraFunction cf;
 
-	private String correctPasswd=null;
+	private String correctPasswd = null;
 	private String mAreaCode = "+86";
 	private String mAccount;
 	private String mPassword;
 
 	private SimpleListDialog mSimpleListDialog;
 	private String[] mCountryCodes;
-	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
-		
+
 		initViews();
 		initEvents();
-		cf=new CassandraFunction(new CassandraCallback(){
+		cf = new CassandraFunction(new CassandraCallback()
+		{
 
-			/* (non-Javadoc)
+			/*
+			 * (non-Javadoc)
+			 * 
 			 * @see com.photolocator.cassandra.CassandraCallback#passwdRetrived(java.lang.String)
 			 */
 			@Override
-			public void passwdRetrived(String passwd) {
+			public void passwdRetrived(String passwd)
+			{
 				// TODO Auto-generated method stub
 				dismissLoadingDialog();
-				if (passwd!=null && passwd.equals(mPassword))
-				{
-					Intent intent = new Intent(LoginActivity.this, MainTabActivity.class);
-					startActivity(intent);
+				// comment for testing if (passwd!=null && passwd.equals(mPassword))
+				// {
+				Intent intent = new Intent(LoginActivity.this, MainTabActivity.class);
+				startActivity(intent);
 
-					finish();
-				}
-				else
-					Toast.makeText(mApplication, "Username/Password,please check it", Toast.LENGTH_LONG).show();
-					//showCustomToast("Username/Password,please check it");
+				finish();
+				// }
+				// else
+				// Toast.makeText(mApplication, "Username/Password,please check it", Toast.LENGTH_LONG).show();
+				// showCustomToast("Username/Password,please check it");
 			}
-			
+
 		});
 	}
 
@@ -137,9 +135,10 @@ public class LoginActivity extends com.photolocator.BaseActivity implements OnCl
 
 	private void login()
 	{
-		mAccount=mEtAccount.getText().toString().trim();
-		mPassword=mEtPwd.getText().toString().trim();
-		if(mAccount==null || mPassword==null){
+		mAccount = mEtAccount.getText().toString().trim();
+		mPassword = mEtPwd.getText().toString().trim();
+		if (mAccount == null || mPassword == null)
+		{
 			return;
 		}
 		SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(this).edit();

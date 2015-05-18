@@ -3,6 +3,7 @@ package com.photolocator.view;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Parcelable;
@@ -52,6 +53,7 @@ public class UserPhotosView extends LinearLayout implements OnClickListener
 		init(context);
 	}
 
+	@SuppressLint("NewApi")
 	public UserPhotosView(Context context, AttributeSet attrs, int defStyle)
 	{
 		super(context, attrs, defStyle);

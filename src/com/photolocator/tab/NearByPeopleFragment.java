@@ -36,6 +36,7 @@ public class NearByPeopleFragment extends BaseFragment implements OnItemClickLis
 		super();
 	}
 
+	@SuppressLint("ValidFragment")
 	public NearByPeopleFragment(BaseApplication application, Activity activity, Context context)
 	{
 		super(application, activity, context);
